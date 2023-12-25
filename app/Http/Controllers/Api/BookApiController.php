@@ -122,14 +122,7 @@ class BookApiController extends Controller
      */
     public function show(Book $book)
     {
-        if (!Auth::guard('api')->user() || !Auth::guard('api')->user()->hasRole('member')) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'You are not authorized to view this book.'
-            ], 403);
-        }
-
-        if (!Auth::guard('api')->user()->hasRole('librarian')) {
+        if (!Auth::guard('api')->user() || !Auth::guard('api')->user()->hasRole('librarian')) {
             return response()->json([
                 'status' => 'error',
                 'message' => 'You are not authorized to view this book.'
@@ -238,16 +231,7 @@ class BookApiController extends Controller
             ], 403);
         }
 
-        try {
-            dd(Book::findOrFail($book->id));
-
-        } catch (Exception $e) {
-            return response()->json([
-                'status' => 'error',
-                'message' => 'Book not found'
-            ], 404);
-        }
-
+        Book::findOrFail($book->id);
         if (!$book) {
             return response()->json([
                 'status' => 'error',

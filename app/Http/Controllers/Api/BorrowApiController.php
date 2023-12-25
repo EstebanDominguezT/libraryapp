@@ -25,12 +25,20 @@ class BorrowApiController extends Controller
             ], 403);
         }
 
-        $borrows = DB::table('borrows')
-            ->join('users', 'borrows.user_id', '=', 'users.id')
-            ->join('books', 'borrows.book_id', '=', 'books.id')
-            ->select('borrows.*', 'users.fullname as user_fullname', 'users.id as user_id', 'books.title as book_title', 'books.isbn as book_isbn')
-            ->where('borrows.user_id', '=', Auth::guard('api')->user()->id)
-            ->get();
+        if (Auth::guard('api')->user()->hasRole('librarian')) {
+            $borrows = DB::table('borrows')
+                ->join('users', 'borrows.user_id', '=', 'users.id')
+                ->join('books', 'borrows.book_id', '=', 'books.id')
+                ->select('borrows.*', 'users.fullname as user_fullname', 'users.id as user_id', 'books.title as book_title', 'books.isbn as book_isbn')
+                ->get();
+        } elseif (Auth::guard('api')->user()->hasRole('member')) {
+            $borrows = DB::table('borrows')
+                ->join('users', 'borrows.user_id', '=', 'users.id')
+                ->join('books', 'borrows.book_id', '=', 'books.id')
+                ->select('borrows.*', 'users.fullname as user_fullname', 'users.id as user_id', 'books.title as book_title', 'books.isbn as book_isbn')
+                ->where('borrows.user_id', '=', Auth::user()->id)
+                ->get();
+        }
 
         if (!$borrows) {
             return response()->json([
@@ -198,7 +206,7 @@ class BorrowApiController extends Controller
         $borrow->borrowed_at = Carbon::parse($request->borrowed_at)->format('Y-m-d');
         $borrow->due_at = Carbon::parse($request->due_at)->format('Y-m-d');
         $borrow->status = $request->status;
-        $borrow->returned_at = Carbon::parse($request->returned_at)->format('Y-m-d');
+        $borrow->returned_at = ($borrow->status == 'returned') ? Carbon::parse($request->returned_at)->format('Y-m-d') : null;
         $borrow->user_returned_id = $request->user_returned_id;
         $borrow->notes = $request->notes;
 

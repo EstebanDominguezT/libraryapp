@@ -1,0 +1,399 @@
+{
+	"info": {
+		"_postman_id": "3a4eaf4a-886e-4ca1-8cf8-5d05753d4ed6",
+		"name": "Library Managment API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9688314"
+	},
+	"item": [
+		{
+			"name": "Books CRUD",
+			"item": [
+				{
+					"name": "Update a Book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3JlZnJlc2giLCJpYXQiOjE3MDM0NjYwODcsImV4cCI6MTcwMzQ3MzM2NCwibmJmIjoxNzAzNDY5NzY0LCJqdGkiOiJzZmNNQTRYUDdMY3lsbTJEIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.1ozBPn-C1TTgAVDsh3kq1qERhy4X-6PA7LoYE2_wudY"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"isbn\": \"9780061122415\",\r\n    \"title\": \"The Alchemist V2\",\r\n    \"author_id\": 1,\r\n    \"category_id\": 1,\r\n    \"genre_id\": 1,\r\n    \"total_copies\": 10,\r\n    \"available_copies\": 8,\r\n    \"cover\": null,\r\n    \"description\": \"The Alchemist is the story of Santiago, an Audalusian shepherd boy who travels in search of a worldly treasure. From his home in Spain he journeys to the markets of Tangiers and across the Egyptian desert to a fateful encounter with the alchemist.\\r\\nThe story of the treasures Santiago finds along the way teaches readers, as only a few stories have done, about the essential wisdom of listening to our hearts, learning to read the omens strewn along life’s path, and above all, following their dreams.\",\r\n    \"published_at\": \"1998-05-28 00:00:00\",\r\n    \"pages\": 208,\r\n    \"format\": \"paperback\",\r\n    \"user_created_id\": 1,\r\n    \"active\": 1\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8000/api/v1/books/update/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3JlZnJlc2giLCJpYXQiOjE3MDM0NjYwODcsImV4cCI6MTcwMzQ3MzM2NCwibmJmIjoxNzAzNDY5NzY0LCJqdGkiOiJzZmNNQTRYUDdMY3lsbTJEIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.1ozBPn-C1TTgAVDsh3kq1qERhy4X-6PA7LoYE2_wudY"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "localhost:8000/api/v1/books/delete/1"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3JlZnJlc2giLCJpYXQiOjE3MDM0NjYwODcsImV4cCI6MTcwMzQ2OTY5NywibmJmIjoxNzAzNDY2MDk3LCJqdGkiOiJwWk1URXVYU2QycE4wQ3dGIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.OuRzFLRMc-Kt6L07JKdxml-uEOuDNiMpVEabGsybjTY"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"isbn\": \"978-3-16-148410-0\",\r\n  \"title\": \"Ejemplo de Libro\",\r\n  \"description\": \"Una breve descripción del libro\",\r\n  \"genre_id\": 1,\r\n  \"author_id\": 1,\r\n  \"category_id\": 1,\r\n  \"total_copies\": 10,\r\n  \"available_copies\": 5,\r\n  \"published_at\": \"2023-01-01\",\r\n  \"format\": \"paperback\",\r\n  \"pages\": 200,\r\n  \"active\": true\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8000/api/v1/books/create"
+					},
+					"response": []
+				},
+				{
+					"name": "Show a Book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzAzNTE5NTE5LCJleHAiOjE3MDM1MjMxMTksIm5iZiI6MTcwMzUxOTUxOSwianRpIjoiWUtYZHVpQXM3VGMxQ3dZZCIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.eqW_uOlV1L_7iNSUI7nEnoOu49-dZ1P3SyQemKj5QEM"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "localhost:8000/api/v1/books/1"
+					},
+					"response": []
+				},
+				{
+					"name": "List Books",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzAzNTE5NTE5LCJleHAiOjE3MDM1MjMxMTksIm5iZiI6MTcwMzUxOTUxOSwianRpIjoiWUtYZHVpQXM3VGMxQ3dZZCIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.eqW_uOlV1L_7iNSUI7nEnoOu49-dZ1P3SyQemKj5QEM"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8000/api/v1/books/"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Authentication",
+			"item": [
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "member@member.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": "localhost:8000/api/v1/login"
+					},
+					"response": []
+				},
+				{
+					"name": "Refresh Token",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3JlZnJlc2giLCJpYXQiOjE3MDM0NzA2ODIsImV4cCI6MTcwMzQ3NTcwMCwibmJmIjoxNzAzNDcyMTAwLCJqdGkiOiI3TXVVV0VkVThQSmxyU250Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.X8BuD5AG24x0gFg6Ird260r7oatla0vO-0PaA9qT5aA"
+							}
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "formdata",
+							"formdata": [
+								{
+									"key": "email",
+									"value": "estebantalavera17@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "12345678",
+									"type": "text"
+								}
+							]
+						},
+						"url": "localhost:8000/api/v1/refresh"
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Borrows CRUD",
+			"item": [
+				{
+					"name": "Update a Borrow",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3JlZnJlc2giLCJpYXQiOjE3MDM0NzA2ODIsImV4cCI6MTcwMzQ4MTMwOCwibmJmIjoxNzAzNDc3NzA4LCJqdGkiOiJqZnFjbUxHTTd6ZzNucjZxIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.sPjxOa7r7ryisdtEeE0yIHmfeLpgvJz7evY0UJESVgg"
+							}
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": 3,\r\n  \"book_id\": 2,\r\n  \"borrowed_at\": \"2023-12-24 08:00:00\",\r\n  \"due_at\": \"2024-01-07 00:00:00\",\r\n  \"status\": \"returned\", //can be borrowed or returned it is a enum field\r\n  \"returned_at\": \"2023-12-25 00:00:00\",\r\n  \"user_returned_id\": 1,\r\n  \"notes\": \"perfect status of the book\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8000/api/v1/borrows/update/2"
+					},
+					"response": []
+				},
+				{
+					"name": "Delete a Borrow",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3JlZnJlc2giLCJpYXQiOjE3MDM0NzA2ODIsImV4cCI6MTcwMzQ4MTMwOCwibmJmIjoxNzAzNDc3NzA4LCJqdGkiOiJqZnFjbUxHTTd6ZzNucjZxIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.sPjxOa7r7ryisdtEeE0yIHmfeLpgvJz7evY0UJESVgg"
+							}
+						},
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "localhost:8000/api/v1/borrows/delete/8"
+					},
+					"response": []
+				},
+				{
+					"name": "Create a Borrow",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3JlZnJlc2giLCJpYXQiOjE3MDM0NzA2ODIsImV4cCI6MTcwMzQ4MTMwOCwibmJmIjoxNzAzNDc3NzA4LCJqdGkiOiJqZnFjbUxHTTd6ZzNucjZxIiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.sPjxOa7r7ryisdtEeE0yIHmfeLpgvJz7evY0UJESVgg"
+							}
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"user_id\": 1,\r\n  \"book_id\": 1,\r\n  \"borrowed_at\": \"2023-01-15 08:00:00\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8000/api/v1/borrows/create"
+					},
+					"response": []
+				},
+				{
+					"name": "Show a Borrow",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL3JlZnJlc2giLCJpYXQiOjE3MDM0NzA2ODIsImV4cCI6MTcwMzQ3NDI5MCwibmJmIjoxNzAzNDcwNjkwLCJqdGkiOiJkOHRNQk04b3dMZldYY0o4Iiwic3ViIjoiMSIsInBydiI6IjIzYmQ1Yzg5NDlmNjAwYWRiMzllNzAxYzQwMDg3MmRiN2E1OTc2ZjcifQ.mF8qC8nPnUsk1FDmkqbQcMUVhaqbB8FEka4FztaYNYs"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": "localhost:8000/api/v1/borrows/1"
+					},
+					"response": []
+				},
+				{
+					"name": "List Borrows",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": {
+								"token": "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vbG9jYWxob3N0OjgwMDAvYXBpL3YxL2xvZ2luIiwiaWF0IjoxNzAzNTE5NTE5LCJleHAiOjE3MDM1MjMxMTksIm5iZiI6MTcwMzUxOTUxOSwianRpIjoiWUtYZHVpQXM3VGMxQ3dZZCIsInN1YiI6IjMiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.eqW_uOlV1L_7iNSUI7nEnoOu49-dZ1P3SyQemKj5QEM"
+							}
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": "localhost:8000/api/v1/borrows"
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
